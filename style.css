@@ -24,6 +24,8 @@ a,
     transition: all 300ms ease;
 }
 
+/* NAV-BAR */
+
 nav, 
 .nav-links {
     display: flex;
@@ -54,10 +56,77 @@ a:hover {
     text-decoration-color: rgb(181,181,181);
 }
 
-.logo{
+.logo {
     font-size: 2rem;
 }
 
-.logo:hover{
+.logo:hover {
     cursor:default;
 }
+
+/* HAMBURGER-MENU */
+
+/* Hamburger Navigation Bar */
+#hamburger-nav {
+    display: none; /* Hidden on larger screens */
+    justify-content: space-between; /* Space out logo and icon */
+    align-items: center; /* Center items vertically */
+    padding: 0 1rem; /* Add horizontal padding */
+    height: 17vh; /* Match height with desktop nav */
+    background-color: white; /* Optional: Add a background color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+
+.hamburger-menu {
+    display: flex; /* Align icon to the right */
+    align-items: center;
+    position: relative; /* Relative for dropdown positioning */
+}
+
+.hamburger-icon {
+    display: flex; /* Stacked lines for icon */
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    cursor: pointer; /* Pointer for clickable icon */
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Dropdown Menu */
+.menu-links {
+    position: absolute;
+    top: calc(100% + 10px); /* Positioned below the icon */
+    right: 0;
+    background-color: white;
+    width: 200px;
+    overflow: hidden;
+    visibility: hidden; /* Initially hidden */
+    height: 0; /* Initially collapsed */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Shadow for dropdown */
+    transition: height 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.menu-links.show {
+    visibility: visible; /* Make visible */
+    height: auto; /* Expand to fit content */
+}
+
+.menu-links li {
+    padding: 10px 15px; /* Add space inside dropdown links */
+    text-align: left;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
+

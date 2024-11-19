@@ -1,0 +1,9 @@
+/* Ensure Hamburger Menu Appears for Small Screens */
+@media screen and (max-width: 1200px) {
+    #desktop-nav {
+        display: none; /* Hide desktop navigation */
+    }
+    #hamburger-nav {
+        display: flex; /* Show hamburger navigation */
+    }
+}
