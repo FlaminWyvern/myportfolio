@@ -22,11 +22,10 @@ function typeEffect() {
         if (charIndex < lines[lineIndex].length) {
             cursor.insertAdjacentText('beforebegin', lines[lineIndex].charAt(charIndex));
             charIndex++;
-            setTimeout(typeEffect, 20); // Typing speed
+            setTimeout(typeEffect, 37); 
         } else {
-            // Check if this is the last line
             if (lineIndex < lines.length - 1) {
-                // Move to the next line
+
                 typedText.innerHTML += "<br>";
                 typedText.appendChild(cursor); 
             } else {
