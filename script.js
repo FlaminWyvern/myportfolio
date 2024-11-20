@@ -5,21 +5,41 @@ function toggleMenu(){
     icon.classList.toggle("open")
 }
 
-const textToType = "Hello,\nI'm Josh Philip,\nAspiring Cybersecurity Engineer";
-const typedText = document.getElementById("typed-text");
+const lines = [
+    "Hello",
+    "I'm Josh Philip",
+    "An Aspiring Cybersecurity Engineer"
+];
 
+const typedText = document.getElementById("typed-text");
+const cursor = document.getElementById("cursor");
+
+let lineIndex = 0;
 let charIndex = 0;
 
 function typeEffect() {
-    if (charIndex < textToType.length) {
-        if (textToType.charAt(charIndex) === "\n") {
-            typedText.innerHTML += "<br>";
+    if (lineIndex < lines.length) {
+        if (charIndex < lines[lineIndex].length) {
+            cursor.insertAdjacentText('beforebegin', lines[lineIndex].charAt(charIndex));
+            charIndex++;
+            setTimeout(typeEffect, 20); // Typing speed
         } else {
-            typedText.innerHTML += textToType.charAt(charIndex);
+            // Check if this is the last line
+            if (lineIndex < lines.length - 1) {
+                // Move to the next line
+                typedText.innerHTML += "<br>";
+                typedText.appendChild(cursor); 
+            } else {
+                typedText.appendChild(cursor);
+            }
+            charIndex = 0;
+            lineIndex++;
+            setTimeout(typeEffect, 1000); 
         }
-        charIndex++;
-        setTimeout(typeEffect, 100); 
+    } else {
+        cursor.style.animation = "blink 0.5s step-end infinite"; 
     }
 }
 
-window.onload = typeEffect; 
+window.onload = typeEffect;
+

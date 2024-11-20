@@ -8,8 +8,11 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-      
+    margin: 0;
+    background: linear-gradient(135deg, white, #D1FFBD);
 }
+
+
 
 html {
     scroll-behavior: smooth;
@@ -283,10 +286,13 @@ section {
 }
 
 .typing-effect {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-    position: relative;
+    max-width: 600px; /* Control the line width */
+    text-align: justify; /* Justify alignment */
+    color: black;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 2.0rem; /* Larger text size */
+    line-height: 1.5; /* Add some spacing between lines */
+    margin: 0 20px; /* Padding for responsive view */
 }
 
 .typing-effect::after {
@@ -300,3 +306,26 @@ section {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+/* Blinking cursor effect */
+/* Blinking cursor effect */
+#cursor {
+    display: inline-block;
+    font-size: 1.5rem; /* Match the text size */
+    margin-left: 5px; /* Add a little space from the last letter */
+    animation: blink 0.5s step-end infinite;
+    color: black;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
